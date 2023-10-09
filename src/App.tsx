@@ -3,7 +3,7 @@ import { ContainerButtons } from './components/ContainerButtons'
 function App() {
 
   return (
-    <div className='p-6'>
+    <div className='min-h-screen flex justify-center items-center'>
       <ContainerButtons />
     </div>
   )

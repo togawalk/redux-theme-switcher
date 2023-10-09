@@ -6,7 +6,7 @@ export interface CounterState {
 }
 
 const initialState: CounterState = {
-  theme: "system",
+  theme: localStorage.theme || "system",
 }
 
 export const ThemeSlice = createSlice({
@@ -16,7 +16,6 @@ export const ThemeSlice = createSlice({
     changeTheme: (state, action) => {
       const data = action.payload
       state.theme = data
-      console.log(data)
     },
   },
 })
