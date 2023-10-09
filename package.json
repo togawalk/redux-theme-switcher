@@ -1,5 +1,5 @@
 {
-  "name": "toggle",
+  "name": "redux-theme-switcher",
   "private": true,
   "version": "0.0.0",
   "type": "module",
