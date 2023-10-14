@@ -1,21 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
-import { changeTheme } from "../features/theme/ThemeSlice";
+import { useSelector } from "react-redux";
 import type { RootState } from "../store";
 import { useEffect } from "react";
-
-const Button = ({ name, selectButton }) => {
-  const dispatch = useDispatch();
-  return (
-    <button
-      onClick={() => dispatch(changeTheme(name))}
-      className={`bg-black text-white px-3 py-2 rounded transition-all ${
-        selectButton ? "bg-blue-800" : undefined
-      }`}
-    >
-      {name}
-    </button>
-  );
-};
+import { Button } from "./Button";
 
 export const ContainerButtons = () => {
   const themeValue = useSelector((state: RootState) => state.theme.theme);
@@ -50,19 +36,18 @@ export const ContainerButtons = () => {
     }
   };
 
-  useEffect(() =>{
-    themeSystem.addEventListener("change", changeSystemDark)
+  useEffect(() => {
+    themeSystem.addEventListener("change", changeSystemDark);
     return () => {
-      window.removeEventListener("change", changeSystemDark)
-    }
-  }, [themeValue])
-
+      window.removeEventListener("change", changeSystemDark);
+    };
+  }, [themeValue]);
 
   return (
-    <div className="flex space-x-4 justify-center">
-      <Button name="light" selectButton={themeValue === "light"} />
-      <Button name="dark" selectButton={themeValue === "dark"} />
-      <Button name="system" selectButton={themeValue === "system"} />
+    <div className="inline-flex shadow-sm" role="group">
+      <Button name="light" selectButton={themeValue === "light"} className="rounded-l-md">Light</Button>
+      <Button name="dark" selectButton={themeValue === "dark"} className="ml-[-1px]">Dark</Button>
+      <Button name="system" selectButton={themeValue === "system"} className="ml-[-1px] rounded-r-md">System</Button>
     </div>
   );
 };
