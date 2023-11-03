@@ -14,7 +14,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
       onClick={() => dispatch(changeTheme(name))}
-        className={cn('px-3 py-2 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:ring-gray-700 dark:text-gray-200 dark:bg-[#ffffff1a]', className, `${selectButton ? "bg-gray-100 dark:bg-gray-700" : undefined}`)}
+        className={cn('bg-white px-3 py-2 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:ring-gray-700 dark:text-gray-200 dark:bg-gray-900', className, `${selectButton ? "bg-gray-100 dark:bg-gray-700" : undefined}`)}
         ref={ref}
         {...props}
       />
